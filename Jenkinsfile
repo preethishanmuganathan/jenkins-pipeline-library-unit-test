@@ -1,7 +1,9 @@
-pipeline {
-    agent any
-
+node {
+    
     stages {
+        stage('checkout') {
+            checkout scm
+        }
         stage('Build') {
             steps {
                 mvn(goals: 'clean compile')
